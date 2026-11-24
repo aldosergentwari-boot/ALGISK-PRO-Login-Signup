@@ -61,7 +61,7 @@ async function submitAuth(e){
 }
 $("#loginTab").addEventListener("click",()=>setMode("login"));
 $("#signupTab").addEventListener("click",()=>setMode("signup"));
-$("#togglePassword").addEventListener("click",()=>{const p=$("#password");p.type=p.type==="password"?"text":"password";$("#togglePassword").textContent=p.type==="password"?"Show":"Hide"});
+document.querySelectorAll("[data-toggle-password]").forEach(button=>button.addEventListener("click",()=>{const field=document.getElementById(button.dataset.togglePassword);if(!field)return;const visible=field.type==="password";field.type=visible?"text":"password";button.textContent=visible?"Hide":"Show";button.setAttribute("aria-label",visible?"Hide password":"Show password");button.setAttribute("aria-pressed",String(visible));}));
 $("#forgotBtn").addEventListener("click",()=>say("Password reset by email needs a connected backend. This demo stores accounts only in this browser; use account settings after signing in to change a known password."));
 form.addEventListener("submit",submitAuth);
 setMode("login");

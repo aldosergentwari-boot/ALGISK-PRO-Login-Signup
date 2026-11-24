@@ -2,7 +2,7 @@ const $=s=>document.querySelector(s);
 const form=$("#authForm"), message=$("#formMessage"), submit=$("#submitBtn");
 let mode="login";
 const STORE="algisk_pro_accounts_v2",SESSION="algisk_pro_session";
-const readUsers=()=>{try{return JSON.parse(localStorage.getItem(STORE)||"[]")}catch{return[]}};
+const readUsers=()=>{try{const current=localStorage.getItem(STORE);if(current)return JSON.parse(current);const legacy=JSON.parse(localStorage.getItem("tether_users_v5")||"[]");if(!legacy.length)return[];const migrated=legacy.map(u=>({name:u.username||"ALGISK Member",username:String(u.username||"").toLowerCase(),email:String(u.email||"").toLowerCase(),password:u.password||"",createdAt:new Date().toISOString()}));localStorage.setItem(STORE,JSON.stringify(migrated));return migrated}catch{return[]}};
 const saveUsers=users=>localStorage.setItem(STORE,JSON.stringify(users));
 const clean=v=>v.trim().toLowerCase();
 const validEmail=v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);

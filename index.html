@@ -1,27 +1,30 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ALGISK — Authentication</title><link rel="stylesheet" href="style.css"></head>
-<body><main class="card">
-<header class="brand"><span class="logo"><i></i></span><span>ALGISK</span></header>
-<h1 id="title">Sign in</h1><p id="subtitle">Welcome back. Use your email or username to continue.</p>
-<form id="form" novalidate>
-<div class="field usernameField"><label>Username</label><div class="input"><b>@</b><input id="username" placeholder="Choose a username" maxlength="24" autocomplete="username"><span class="check">✓</span></div><small id="usernameError"></small></div>
-<div class="field"><div class="labelrow"><label id="idLabel">Email or username</label></div><div class="input"><b id="idIcon">@</b><input id="identifier" placeholder="you@studio.com or username" autocomplete="username"><span class="check">✓</span></div><small id="idError"></small></div>
-<div class="field"><label>Password</label><div class="input"><b>♙</b><input id="password" type="password" placeholder="At least 8 characters" autocomplete="current-password"><button type="button" id="eye">◉</button><span class="check">✓</span></div>
-<div class="password-actions"><button type="button" class="forgot" id="forgot">Forgot?</button></div>
-<div class="strength" id="strength"><i></i><i></i><i></i><i></i><em></em></div><small id="passError"></small></div>
-<div class="field confirmField"><label>Confirm password</label><div class="input"><b>♙</b><input id="confirm" type="password" placeholder="Repeat your password" autocomplete="new-password"><span class="check">✓</span></div><small id="confirmError"></small></div>
-<div class="runaway" id="runaway">
-      <div class="destination" id="destination" aria-hidden="true">
-        <span id="destinationText">Log in</span>
-      </div>
-      <svg class="tether-svg" aria-hidden="true">
-        <line id="tetherLine" x1="50%" y1="50%" x2="50%" y2="50%"></line>
-        <circle id="tetherAnchor" cx="50%" cy="50%" r="7"></circle>
-        <circle id="tetherCore" cx="50%" cy="50%" r="2.5"></circle>
-      </svg>
-      <button id="submit" type="submit"><span id="btnText">Log in</span><i class="spinner"></i></button>
-    </div>
-<p class="hint" id="hint"><span></span> Complete the fields to unlock the button.</p><p class="keys"><kbd>Tab</kbd> reaches it. <kbd>Enter</kbd> submits.</p>
-</form><div class="line"></div><p class="switch"><span id="switchText">No account yet?</span> <button type="button" id="switch">Create one</button></p>
-</main><div id="toast"></div><script src="script.js"></script></body></html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07100f"><meta name="description" content="ALGISK PRO secure sign in and account creation">
+<title>ALGISK PRO — Welcome</title><link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+<main class="auth-shell">
+<section class="auth-card">
+<a class="brand" href="index.html" aria-label="ALGISK PRO home"><span class="brand-mark">A</span><span>ALGISK <b>PRO</b></span></a>
+<div class="eyebrow">YOUR SPACE. YOUR CONTROL.</div>
+<h1 id="formTitle">Welcome back<span>.</span></h1>
+<p class="intro" id="formSubtitle">Sign in to continue to your workspace.</p>
+<div class="tabs" role="tablist"><button class="tab active" id="loginTab" type="button">Sign in</button><button class="tab" id="signupTab" type="button">Create account</button></div>
+<form id="authForm" novalidate>
+<div class="form-field" id="nameField" hidden><label for="fullName">Full name</label><input id="fullName" type="text" placeholder="Your name" autocomplete="name" maxlength="60"></div>
+<div class="form-field" id="usernameField" hidden><label for="username">Username</label><input id="username" type="text" placeholder="Choose a username" autocomplete="username" minlength="3" maxlength="24"></div>
+<div class="form-field"><label for="identifier" id="identifierLabel">Email or username</label><input id="identifier" type="text" placeholder="you@example.com or username" autocomplete="username" required></div>
+<div class="form-field"><div class="field-heading"><label for="password">Password</label><button class="text-button" type="button" id="forgotBtn">Forgot password?</button></div><div class="password-wrap"><input id="password" type="password" placeholder="At least 8 characters" autocomplete="current-password" required><button type="button" class="show-password" id="togglePassword" aria-label="Show password">Show</button></div></div>
+<div class="form-field" id="confirmField" hidden><label for="confirmPassword">Confirm password</label><input id="confirmPassword" type="password" placeholder="Enter password again" autocomplete="new-password"></div>
+<p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+<button class="primary-button" id="submitBtn" type="submit"><span id="submitText">Sign in</span><span class="button-arrow">→</span></button>
+</form>
+<div class="auth-foot"><span class="status-dot"></span> ALGISK PRO account access</div>
+</section>
+<aside class="auth-aside"><div class="aside-orb"></div><div class="aside-content"><span class="eyebrow">BUILT AROUND YOU</span><h2>One account.<br><span>More possibilities.</span></h2><p>A cleaner space to manage your profile, account preferences and personal workspace.</p><div class="aside-line"></div><small>ALGISK PRO <span>•</span> DIGITAL EXPERIENCE</small></div></aside>
+</main>
+<script src="script.js"></script>
+</body></html>
